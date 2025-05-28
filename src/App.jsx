@@ -3,6 +3,7 @@ import "./App.css";
 import Hero from "./components/Hero";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import ErrorPage from "./components/Error";
 
 function App() {
   const user = localStorage.getItem("user");
@@ -25,9 +26,13 @@ function App() {
       element: <SignIn />,
     },
     {
-      path:"/hero",
-      element: <Hero/>
-    }
+      path: "/hero",
+      element: <Hero />,
+    },
+    {
+      path: "/*",
+      element: <ErrorPage />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
